@@ -1,0 +1,131 @@
+/* Global Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: #f1f1f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Form Container */
+.form-container {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 360px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hide inactive forms */
+.form-box {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Show form when targeted */
+#login:target, #register:target {
+    display: block;
+}
+
+#login {
+    display: block; /* Default to login form */
+}
+
+/* Form Title */
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Input Box */
+.input-box {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    background: none;
+    transition: border-color 0.3s ease;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    font-size: 16px;
+    color: #888;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: top 0.3s ease, font-size 0.3s ease;
+}
+
+.input-box input:focus {
+    border-color: #5cb85c;
+}
+
+.input-box input:focus + label,
+.input-box input:not(:placeholder-shown) + label {
+    top: -10px;
+    font-size: 12px;
+    color: #5cb85c;
+}
+
+/* Button Styles */
+.btn {
+    width: 100%;
+    padding: 12px;
+    background: #5cb85c;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #4cae4c;
+}
+
+/* Switch Forms */
+.switch-form {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.switch-form a {
+    color: #5cb85c;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.switch-form a:hover {
+    color: #3d8b3d;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
