@@ -5,6 +5,7 @@ from .models import Student
 from .forms import StudentForm
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+from django.contrib import messages
 
 @login_required
 def student_list(request):
@@ -13,6 +14,10 @@ def student_list(request):
     if search_query:
         students = students.filter(first_name__icontains=search_query) | students.filter(last_name__icontains=search_query)
     
+    # If no students match the search query
+        if not students.exists():
+            messages.warning(request, f'No students found with the name "{search_query}".')
+
     # Pagination logic (limit to 10 students per page)
     
     paginator = Paginator(students, 10)  # 10 students per page
