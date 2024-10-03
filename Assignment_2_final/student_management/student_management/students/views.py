@@ -13,6 +13,8 @@ def student_list(request):
     if search_query:
         students = students.filter(first_name__icontains=search_query) | students.filter(last_name__icontains=search_query)
     
+    # Pagination logic (limit to 10 students per page)
+    
     paginator = Paginator(students, 10)  # 10 students per page
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)

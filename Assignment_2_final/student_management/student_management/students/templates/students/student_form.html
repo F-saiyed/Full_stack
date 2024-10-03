@@ -1,6 +1,76 @@
-<h1>{% if form.instance.pk %}Edit{% else %}Add{% endif %} Student</h1>
+<!-- <h1>{% if form.instance.pk %}Edit{% else %}Add{% endif %} Student</h1>
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Save</button>
-</form>
+</form> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if form.instance.pk %}Edit{% else %}Add{% endif %} Student</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 60%;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            border-radius: 10px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            margin: 0 auto;
+        }
+        form input, form select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{% if form.instance.pk %}Edit{% else %}Add{% endif %} Student</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            {% if form.errors %}
+                <ul>
+                    {% for field, errors in form.errors.items %}
+                        <li>{{ field }}: {{ errors }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <button type="submit">Save</button>
+        </form>
+    </div>
+</body>
+</html>

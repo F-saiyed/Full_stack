@@ -1,6 +1,75 @@
-<h1>{{ student.first_name }} {{ student.last_name }}</h1>
+<!-- <h1>{{ student.first_name }} {{ student.last_name }}</h1>
 <p>Email: {{ student.email }}</p>
 <p>Date of Birth: {{ student.date_of_birth }}</p>
 <p>Enrollment Date: {{ student.enrollment_date }}</p>
 <p>Grade: {{ student.grade }}</p>
-<a href="{% url 'edit_student' student.pk %}">Edit</a>
+<a href="{% url 'edit_student' student.pk %}">Edit</a> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ student.first_name }} {{ student.last_name }} - Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 60%;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            border-radius: 10px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        p {
+            font-size: 16px;
+            color: #555;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        p:last-child {
+            border-bottom: none;
+        }
+        .actions {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .actions a {
+            text-decoration: none;
+            background-color: #5cb85c;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            display: inline-block;
+        }
+        .actions a:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ student.first_name }} {{ student.last_name }}</h1>
+        <p><strong>Email:</strong> {{ student.email }}</p>
+        <p><strong>Date of Birth:</strong> {{ student.date_of_birth }}</p>
+        <p><strong>Enrollment Date:</strong> {{ student.enrollment_date }}</p>
+        <p><strong>Grade:</strong> {{ student.grade }}</p>
+
+        <div class="actions">
+            <a href="{% url 'edit_student' student.pk %}">Edit Student Information</a>
+        </div>
+    </div>
+</body>
+</html>
